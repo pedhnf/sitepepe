@@ -161,24 +161,19 @@ footer {
 .btn-escolher:hover {
   background-color: var(--lilas);
 }
-
-/* Galeria */
-/* Galeria */
+/* Galeria tipo mural com grid responsivo */
 .grade-galeria-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Colunas flexíveis, mínimo 140px */
+  gap: 12px;
   padding: 1rem;
-  scroll-behavior: smooth;
-  max-height: 150px; /* limite de altura para o mural */
 }
 
 .grade-galeria-scroll img {
-  width: 180px;   /* tamanho menor para parecer mural */
-  height: 130px;
-  object-fit: cover;
+  width: 100%;
+  height: 120px;       /* altura fixa para uniformidade */
+  object-fit: cover;   /* cobre o espaço, cortando partes que extrapolam */
   border-radius: 10px;
-  flex-shrink: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -188,13 +183,17 @@ footer {
   transform: scale(1.05);
 }
 
-.grade-galeria-scroll::-webkit-scrollbar {
-  height: 8px;
-}
+/* Scroll não é necessário com grid, mas para celular: */
+@media (max-width: 480px) {
+  .grade-galeria-scroll {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    padding: 0.8rem;
+  }
 
-.grade-galeria-scroll::-webkit-scrollbar-thumb {
-  background-color: var(--azul-marinho);
-  border-radius: 10px;
+  .grade-galeria-scroll img {
+    height: 100px;
+  }
 }
 @media (max-width: 600px) {
   .logo {
