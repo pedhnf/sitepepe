@@ -163,25 +163,36 @@ footer {
 }
 
 /* Galeria */
-.grade-galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.grade-galeria-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  scroll-behavior: smooth;
 }
 
-.grade-galeria img {
-  width: 100%;
+.grade-galeria-scroll img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 
-.grade-galeria img:hover {
-  transform: scale(1.03);
+.grade-galeria-scroll img:hover {
+  transform: scale(1.05);
 }
 
+.grade-galeria-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.grade-galeria-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--azul-marinho);
+  border-radius: 10px;
+}
 @media (max-width: 600px) {
   .logo {
     height: 100px;
