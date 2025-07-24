@@ -108,17 +108,7 @@ footer {
   margin-top: 3rem;
 }
 
-/* ======= Parte Presentes ======= */
-
-.grade-presentes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.8rem;
-  margin-top: 2rem;
-  justify-items: center;
-}
-
-.item-presente {
+.presente {
   background-color: var(--branco);
   border-radius: 10px;
   overflow: hidden;
@@ -129,11 +119,11 @@ footer {
   transition: transform 0.3s ease;
 }
 
-.item-presente:hover {
+.presente:hover {
   transform: translateY(-5px);
 }
 
-.item-presente img {
+.presente img {
   width: 100%;
   height: auto;
   max-height: 180px;
@@ -142,15 +132,30 @@ footer {
   margin-bottom: 0.75rem;
 }
 
-.item-presente h3 {
+.presente h3 {
   font-size: 1.1rem;
   margin-bottom: 0.25rem;
 }
 
-.item-presente p {
+.presente p {
   font-size: 1rem;
   color: var(--azul-marinho);
   margin-bottom: 0.75rem;
+}
+
+.botao-escolher {
+  background-color: var(--azul-marinho);
+  color: var(--branco);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+
+.botao-escolher:hover {
+  background-color: var(--lilas);
 }
 
 .btn-escolher {
