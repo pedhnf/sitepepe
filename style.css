@@ -16,7 +16,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #b39ddb 0%, #f9f5e3 50%, #fefaf6 100%);
+  background: linear-gradient(to bottom, var(--lilas) 0%, var(--areia) 50%, var(--perola) 100%);
   color: var(--cinza-escuro);
   line-height: 1.6;
 }
@@ -108,6 +108,16 @@ footer {
   margin-top: 3rem;
 }
 
+/* ======= Parte Presentes ======= */
+
+.grade-presentes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+  justify-items: center;
+}
+
 .presente {
   background-color: var(--branco);
   border-radius: 10px;
@@ -119,8 +129,9 @@ footer {
   transition: transform 0.3s ease;
 }
 
-.presente:hover {
+.presente:hover:not(.esgotado) {
   transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 .presente img {
@@ -152,24 +163,24 @@ footer {
   cursor: pointer;
   transition: background 0.3s ease;
   font-weight: bold;
+  user-select: none;
 }
 
-.botao-escolher:hover {
+.botao-escolher:hover:not(:disabled) {
   background-color: var(--lilas);
 }
 
-.btn-escolher {
-  background-color: var(--azul-marinho);
-  color: var(--branco);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.botao-escolher:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
-.btn-escolher:hover {
-  background-color: var(--lilas);
+.esgotado {
+  opacity: 0.6;
+  pointer-events: none; /* bloqueia clique */
+  user-select: none;
+  filter: grayscale(0.4);
 }
 
 /* ======= Galeria tipo mural ======= */
@@ -213,11 +224,6 @@ footer {
   nav ul {
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .fundo-botao {
-    max-width: 90%;
-    padding: 1.5rem;
   }
 }
 
