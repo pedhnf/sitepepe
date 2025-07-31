@@ -16,7 +16,6 @@
           <li><a href="index.html">Início</a></li>
           <li><a href="presente.html">Presentes</a></li>
           <li><a href="galeria.html">Galeria</a></li>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </ul>
       </nav>
     </div>
@@ -34,15 +33,15 @@
       <p>&copy; 2025 - Aniversário da Pérola Sofia.💜</p>
     </div>
   </footer>
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
 
-  if (id) {
-    const qrImg = document.getElementById('qrCode');
-const qrImg = document.getElementById("qrCode");
-qrImg.src = `qrcode/${id}.jpeg`;
-  }
-</script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    if (id) {
+      const qrImg = document.getElementById("qrCode");
+      qrImg.src = `qrcode/${id}.jpeg`;
+    }
+  </script>
 </body>
 </html>
