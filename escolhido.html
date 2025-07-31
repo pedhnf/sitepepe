@@ -25,7 +25,7 @@
   <main class="container agradecimento">
     <h1>Presente escolhido com sucesso! 🎁</h1>
     <p>Agora é só realizar o PIX usando o QR Code abaixo:</p>
-    <img src="img/qrcode-pix.jpeg" alt="QR Code do PIX" style="width: 300px; margin: 2rem auto; display: block;">
+    <img id="qrCode" src="" alt="QR Code do PIX" style="width: 300px; margin: 2rem auto; display: block;">
     <p>Obrigado por fazer parte desse momento mágico 💜</p>
   </main>
 
@@ -34,5 +34,14 @@
       <p>&copy; 2025 - Aniversário da Pérola Sofia.💜</p>
     </div>
   </footer>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  if (id) {
+    const qrImg = document.getElementById('qrCode');
+    qrImg.src = `qrcodes/qr${id}.png`; // exemplo: qr2.png
+  }
+</script>
 </body>
 </html>
