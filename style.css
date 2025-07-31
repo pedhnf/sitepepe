@@ -115,11 +115,6 @@ nav a {
   animation: surgir 1.2s ease-out forwards;
   animation-delay: 0.3s; /* opcional, só para atrasar o início da animação */
 }
-
-
-.apresentacao.visible {
-  animation: entradaBounce 1.2s ease forwards;
-}
   
 .btn {
   background-color: var(--lilas);
