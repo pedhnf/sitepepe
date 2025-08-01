@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Escolha um Presente | Pérola Sofia</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
+   <style>
     /* Estilos mínimos para a classe 'esgotado' */
     .esgotado {
       opacity: 0.6;
@@ -28,7 +28,21 @@
       background-color: gray;
       cursor: not-allowed;
     }
-  </style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: linear-gradient(-45deg, #ffffff, #dff6f9, #ffffff, #f3eaff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+ </style>
 </head>
 <body>
   <header>
@@ -540,6 +554,26 @@
     botao.addEventListener('click', function () {
       const id = this.getAttribute('data-id');
       window.location.href = escolhido.html?id=${id};
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const botoes = document.querySelectorAll(".botao-escolher");
+
+    // Remove completamente o uso do localStorage
+    // (essa parte não é mais necessária)
+    // const escolhidos = JSON.parse(localStorage.getItem("presentesEscolhidos") || "[]");
+
+    // Evento de clique para cada botão
+    botoes.forEach(botao => {
+      botao.addEventListener("click", () => {
+        const id = botao.dataset.id;
+
+        // Não marca como esgotado nem desabilita o botão
+        // Apenas exibe a mensagem
+        alert("Presente escolhido com sucesso! Mostre o QR Code do PIX.");
+      });
     });
   });
 </script>
