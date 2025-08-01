@@ -43,13 +43,13 @@ body {
   100% { background-position: 0% 50%; }
 }
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: linear-gradient(to bottom, #00334d, #00111a);
-    height: 100vh;
-    font-family: sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #a0e9ff, #5eb8ff); /* azul bem claro */
+  height: 100vh;
+  font-family: sans-serif;
+}
 
   .bubble {
     position: absolute;
@@ -602,6 +602,26 @@ body {
 
     // Cria bolhas a cada 500ms
     setInterval(criarBolha, 500);
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const botoes = document.querySelectorAll(".botao-escolher");
+
+    // Remove completamente o uso do localStorage
+    // (essa parte não é mais necessária)
+    // const escolhidos = JSON.parse(localStorage.getItem("presentesEscolhidos") || "[]");
+
+    // Evento de clique para cada botão
+    botoes.forEach(botao => {
+      botao.addEventListener("click", () => {
+        const id = botao.dataset.id;
+
+        // Não marca como esgotado nem desabilita o botão
+        // Apenas exibe a mensagem
+        alert("Mostrar o QR Code do PIX.");
+      });
+    });
   });
 </script>
 </body>
