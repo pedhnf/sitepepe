@@ -28,20 +28,6 @@
       background-color: gray;
       cursor: not-allowed;
     }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
-  background: linear-gradient(-45deg, #ffffff, #dff6f9, #ffffff, #f3eaff);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
   </style>
 </head>
 <body>
@@ -520,7 +506,7 @@ body {
         const id = presente.ID;
         const status = presente.Status?.toLowerCase();
 
-        const item = document.querySelector(`.presente[data-id='${id}']`);
+        const item = document.querySelector(.presente[data-id='${id}']);
         if (item && status === "escolhido") {
           item.classList.add("esgotado");
           const botao = item.querySelector(".botao-escolher");
@@ -544,7 +530,7 @@ body {
       // Exemplo: escolhido.html?id=1
       const presenteDiv = botao.closest(".presente");
       const id = presenteDiv?.dataset.id || "";
-      window.location.href = `escolhido.html?id=${id}`;
+      window.location.href = escolhido.html?id=${id};
     });
   });
 </script>
@@ -553,39 +539,7 @@ body {
   document.querySelectorAll('.botao-escolher').forEach(botao => {
     botao.addEventListener('click', function () {
       const id = this.getAttribute('data-id');
-      window.location.href = `escolhido.html?id=${id}`;
-    });
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const botoes = document.querySelectorAll(".botao-escolher");
-
-    // Carrega do localStorage os presentes já escolhidos
-    const escolhidos = JSON.parse(localStorage.getItem("presentesEscolhidos") || "[]");
-
-    // Função para marcar item como esgotado
-    function marcarEsgotado(id) {
-      const item = document.querySelector(`.presente[data-id='${id}']`);
-      if (item) {
-        item.classList.add("esgotado");
-        const botao = item.querySelector(".botao-escolher");
-        botao.disabled = true;
-        botao.textContent = "Esgotado";
-      }
-    }
-    // Adiciona eventos de clique
-    botoes.forEach(botao => {
-      botao.addEventListener("click", () => {
-        const id = botao.dataset.id;
-        
-        // Salva no localStorage
-        escolhidos.push(id);
-        localStorage.setItem("presentesEscolhidos", JSON.stringify(escolhidos));
-
-        // Aqui você pode exibir o QR Code PIX
-        alert("Presente escolhido com sucesso! Mostre o QR Code do PIX.");
-      });
+      window.location.href = escolhido.html?id=${id};
     });
   });
 </script>
