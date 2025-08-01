@@ -520,7 +520,7 @@ body {
         const id = presente.ID;
         const status = presente.Status?.toLowerCase();
 
-        const item = document.querySelector(.presente[data-id='${id}']);
+        const item = document.querySelector(`.presente[data-id='${id}']`);
         if (item && status === "escolhido") {
           item.classList.add("esgotado");
           const botao = item.querySelector(".botao-escolher");
@@ -544,19 +544,11 @@ body {
       // Exemplo: escolhido.html?id=1
       const presenteDiv = botao.closest(".presente");
       const id = presenteDiv?.dataset.id || "";
-      window.location.href = escolhido.html?id=${id};
+      window.location.href = `escolhido.html?id=${id}`;
     });
   });
 </script>
 
-<script>
-  document.querySelectorAll('.botao-escolher').forEach(botao => {
-    botao.addEventListener('click', function () {
-      const id = this.getAttribute('data-id');
-      window.location.href = escolhido.html?id=${id};
-    });
-  });
-</script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const botoes = document.querySelectorAll(".botao-escolher");
