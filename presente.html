@@ -575,27 +575,6 @@ body {
     });
   });
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const botoes = document.querySelectorAll(".botao-escolher");
-
-    // Remove completamente o uso do localStorage
-    // (essa parte não é mais necessária)
-    // const escolhidos = JSON.parse(localStorage.getItem("presentesEscolhidos") || "[]");
-
-    // Evento de clique para cada botão
-    botoes.forEach(botao => {
-      botao.addEventListener("click", () => {
-        const id = botao.dataset.id;
-
-        // Não marca como esgotado nem desabilita o botão
-        // Apenas exibe a mensagem
-        alert("Presente escolhido com sucesso! Mostre o QR Code do PIX.");
-      });
-    });
-  });
-</script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     function criarBolha() {
