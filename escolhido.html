@@ -6,6 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Presente Escolhido | Pérola Sofia</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .agradecimento {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .agradecimento h1 {
+      color: #098DAC;
+      margin-bottom: 1rem;
+    }
+    .agradecimento p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .agradecimento img {
+      width: 280px;
+      max-width: 90%;
+      margin: 1.5rem auto;
+      display: block;
+      border: 4px solid #EC7F18;
+      border-radius: 12px;
+    }
+    .btn-voltar {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background: #04C260;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-voltar:hover {
+      background: #038a46;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -23,24 +59,29 @@
 
   <main class="container agradecimento">
     <h1>Presente escolhido com sucesso! 🎁</h1>
-    <p>Agora é só realizar o PIX usando o QR Code abaixo:</p>
-    <img id="qrCode" src="" alt="QR Code do PIX" style="width: 300px; margin: 2rem auto; display: block;">
+    <p id="texto">Agora é só realizar o PIX usando o QR Code abaixo:</p>
+    <img id="qrCode" src="" alt="QR Code do PIX">
     <p>Obrigado por fazer parte desse momento mágico 💜</p>
+    <a href="presente.html" class="btn-voltar">← Voltar para os Presentes</a>
   </main>
 
   <footer>
     <div class="container footer-container">
-      <p>&copy; 2025 - Aniversário da Pérola Sofia.💜</p>
+      <p>&copy; 2025 - Aniversário da Pérola Sofia 💜</p>
     </div>
   </footer>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
+    const qrImg = document.getElementById("qrCode");
+    const texto = document.getElementById("texto");
 
     if (id) {
-      const qrImg = document.getElementById("qrCode");
       qrImg.src = `qrcode/${id}.jpeg`;
+    } else {
+      qrImg.style.display = "none";
+      texto.textContent = "Nenhum presente foi selecionado. Volte à lista e escolha um presente.";
     }
   </script>
 </body>
